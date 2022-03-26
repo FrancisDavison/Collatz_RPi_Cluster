@@ -8,7 +8,7 @@ public class Collatz_Server
 		boolean listening=true; //Declares boolean listening as true, sets Server to default always listen on ports
 		String Control_Name="Control"; //Declares ControlName variable and sets equal to Control, this names the server
 		int Control_Num=4545; //Declares ControlNum variable, this sets the socket number that the server will listen on
-		int[][] Seed_Table=Seed_Table_Generator.Seed_Table_Engine();
+		int[][] Seed_Table=Seed_Array_Generator.Seed_Table_Engine();
 		Collatz_Server_State Shared_State_Object = new Collatz_Server_State(Seed_Table);
 		try
 		{

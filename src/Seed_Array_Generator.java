@@ -1,5 +1,5 @@
 import java.util.*;
-public class Seed_Table_Generator
+public class Seed_Array_Generator
 {
 	public static int[][] Seed_Table_Engine()
 	{
