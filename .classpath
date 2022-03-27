@@ -6,6 +6,11 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Picard/Dropbox/Github/CSV_Parser_Re_Write/Jar/commons-csv-1.9.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Picard/Dropbox/Github/Collatz_RPi_Cluster/OpenCSVJar/opencsv-5.5.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
