@@ -79,13 +79,6 @@ public class Compute_Engine_13
 				Message_Out=(String.valueOf(Node_Id+900))+(String.valueOf(Seed_Status+900))+(String.valueOf(Current_Seed+900000000));
 				return Message_Out;
 			}
-			catch(IOException e)
-			{
-				e.printStackTrace();
-				//Re-construct message here
-				Message_Out=(String.valueOf(Node_Id+900))+(String.valueOf(Seed_Status+900))+(String.valueOf(Current_Seed+900000000));
-				return Message_Out;
-			}
 		}
 		if(Seed_Status==22)
 		{
