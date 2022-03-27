@@ -45,7 +45,7 @@ public class Compute_Engine_08
 		if(Seed_Status==00||Seed_Status==11)
 		{
 			//Compute here
-			String File_Path=".\\Se1_Co15_Config_Output_Test\\"+String.valueOf(Current_Seed)+"_08.csv"; //Change
+			String File_Path=".\\"+String.valueOf(Current_Seed)+"_08.csv"; //Change
 			File file = new File(File_Path);
 			try
 			{
