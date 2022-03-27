@@ -8,7 +8,7 @@ public class Collatz_Compute_06
 		PrintWriter out=null;
 		BufferedReader in=null;
 		int Control_Socket_Num=4545;
-		String Control_Name="localhost";
+		String Control_Name="ControlNode";
 		String Compute_Node_Id="Collatz_Compute_06"; //Change
 		try
 		{
