@@ -2,7 +2,7 @@ import java.io.*;
 import org.apache.commons.csv.*;
 public class Compute_Engine_05
 {
-	public static String Engine_05(String Message_In) throws InterruptedExceptio, IOException
+	public static String Engine_05(String Message_In) throws InterruptedException, IOException
 	{
 		Thread.sleep(5);
 		boolean Final_Seed=false;
@@ -47,7 +47,6 @@ public class Compute_Engine_05
 			//Compute here
 			CSVPrinter printer;
 			String File_Path=String.valueOf(Current_Seed)+"_05.csv";
-	        int Current_seed=100;
 	        FileWriter writer = new FileWriter(File_Path);
 	        printer = new CSVPrinter(writer, CSVFormat.DEFAULT);
 			try

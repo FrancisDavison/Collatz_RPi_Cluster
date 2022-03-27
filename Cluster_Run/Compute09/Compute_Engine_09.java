@@ -47,7 +47,6 @@ public class Compute_Engine_09
 			//Compute here
 			CSVPrinter printer;
 			String File_Path=String.valueOf(Current_Seed)+"_09.csv";
-	        int Current_seed=100;
 	        FileWriter writer = new FileWriter(File_Path);
 	        printer = new CSVPrinter(writer, CSVFormat.DEFAULT);
 			try
