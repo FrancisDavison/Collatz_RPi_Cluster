@@ -1,5 +1,5 @@
 import java.io.*;
-import com.opencsv.*;
+import org.apache.commons.csv.*;
 public class Compute_Engine_15
 {
 	public static String Engine_15(String Message_In) throws InterruptedException //change
@@ -45,36 +45,37 @@ public class Compute_Engine_15
 		if(Seed_Status==00||Seed_Status==11)
 		{
 			//Compute here
-			String File_Path=".\\"+String.valueOf(Current_Seed)+"_15.csv"; //Change
-			File file = new File(File_Path);
+			CSVPrinter printer;
+			String File_Path=String.valueOf(Current_Seed)+"_15.csv";
+	        int Current_seed=100;
+	        FileWriter writer = new FileWriter(File_Path);
+	        printer = new CSVPrinter(writer, CSVFormat.DEFAULT);
 			try
 			{
-				FileWriter OutputFile = new FileWriter(file); //Create FileWriter object with file as parameter
-				CSVWriter writer = new CSVWriter(OutputFile,',',CSVWriter.NO_QUOTE_CHARACTER,CSVWriter.DEFAULT_ESCAPE_CHARACTER,CSVWriter.DEFAULT_LINE_END); //Create CSVWriter object with filewriter object as parameter, comma as seperator, no quotes on data, and default escape characters and line ends
-				String[] header = {"Intermediary Value","nanoTime"}; //Define Headers
-				writer.writeNext(header); //Add Header to CSV
 				long This_Term=Current_Seed; //Create and initialise This_Term variable for tracking current seed number
-				String[] Seed_Data_Temp = {String.valueOf(Current_Seed),String.valueOf(System.nanoTime())}; //Create Seed_Data_Temp array and add current seed value and nanoTime to array
-				writer.writeNext(Seed_Data_Temp); //Write Seed_Data_Temp array to CSV
-				String[] Intermediary_Data_Temp={"",""}; //Create Intermediary_Data_Temp array and leave empty so it can be used for all intermediary values later
+				printer.printRecord(Current_Seed,System.nanoTime());
 				while(This_Term!=1)
 				{
 					if(This_Term%2!=0) //If This_Term is odd:
 					{
 						This_Term=(3*This_Term)+1; //Multiply This_Term by 3 and add 1
-						Intermediary_Data_Temp[0]=String.valueOf(This_Term); //Add This_Term to Intermediary_Data_Temp array at position 0
-						Intermediary_Data_Temp[1]=String.valueOf(System.nanoTime()); //Add nanoTime to Intermediary_Data_Temp at position 1
-						writer.writeNext(Intermediary_Data_Temp); //Write Intermediary_Data_Temp to CSV
+						printer.printRecord(This_Term,System.nanoTime());
 					}
 					else //Else (If This_Term is even)
 					{
 						This_Term=This_Term/2; //Divide This_Term by 2
-						Intermediary_Data_Temp[0]=String.valueOf(This_Term); //Add This_Term to Intermediary_Data_Temp array at position 0
-						Intermediary_Data_Temp[1]=String.valueOf(System.nanoTime()); //Add nanoTime to Intermediary_Data_Temp at position 1
-						writer.writeNext(Intermediary_Data_Temp); //Write Intermediary_Data_Temp to CSV
+						printer.printRecord(This_Term,System.nanoTime());
 					}
+					printer.flush();
 				}
-				writer.close();
+				printer.close();
+				//Re-construct message here
+				Message_Out=(String.valueOf(Node_Id+900))+(String.valueOf(Seed_Status+900))+(String.valueOf(Current_Seed+900000000));
+				return Message_Out;
+			}
+			catch(IOException e)
+			{
+				e.printStackTrace();
 				//Re-construct message here
 				Message_Out=(String.valueOf(Node_Id+900))+(String.valueOf(Seed_Status+900))+(String.valueOf(Current_Seed+900000000));
 				return Message_Out;
