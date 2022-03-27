@@ -2,7 +2,7 @@ import java.io.*;
 import java.net.*;
 public class Collatz_Compute_07
 {
-	public static void main(String args[]) throws IOException, InterruptedException
+	public static void main(String args[]) throws IOException, InterruptedException, IOException
 	{
 		Socket Compute_Socket=null;
 		PrintWriter out=null;
