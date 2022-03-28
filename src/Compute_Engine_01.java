@@ -1,5 +1,4 @@
 import java.io.*;
-import com.opencsv.*;
 public class Compute_Engine_01
 {
 	public static String Engine_01(String Message_In) throws InterruptedException
@@ -36,7 +35,7 @@ public class Compute_Engine_01
 			return Message_Out;
 		}
 		//Check if Current seed is positive integer
-		if(Integer.signum(Current_Seed)!=1&&Integer.signum(Current_Seed)!=0)
+		if(Integer.signum((Current_Seed)!=1&&Integer.signum(Current_Seed)!=0)
 		{
 			//Current Seed error, request same seed again
 			Message_Out=(String.valueOf(Node_Id+900))+(String.valueOf(922))+(String.valueOf(Current_Seed+900000000));

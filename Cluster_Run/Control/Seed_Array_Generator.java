@@ -23,7 +23,7 @@ public class Seed_Array_Generator
 		}
 		System.out.println("Input number of seeds: ");
 		int Seed_Num=Input_Seed_Num.nextInt();
-		while(Seed_Num<=1||Seed_Num>=10000000)
+		while(Seed_Num<=1||Seed_Num>=90000001)
 		{
 			System.out.println("Number of seeds must be an integer value, at least 2 and at most 10,000,000. Please input number of seeds:");
 			Seed_Num=Input_Seed_Num.nextInt();
