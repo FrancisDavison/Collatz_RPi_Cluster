@@ -6,10 +6,10 @@ public class Collatz_Server_Thread extends Thread
 	private Collatz_Server_State Control_State_Object;
 	private String My_Control_Server_Thread_Name;
 	//Set up the thread
-	public Collatz_Server_Thread(Socket Control_Socket, String Control_Server_Thread_Name, Collatz_Server_State Shared_Object)
+	public Collatz_Server_Thread(Socket Control_Socket, String Control_Server_Thread_Name, Collatz_Server_State Seed_Array_Share)
 	{
 		this.Control_Socket=Control_Socket;
-		Control_State_Object=Shared_Object;
+		Control_State_Object=Seed_Array_Share;
 		My_Control_Server_Thread_Name=Control_Server_Thread_Name;
 	}
 	public void run()

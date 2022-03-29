@@ -9,7 +9,7 @@ public class Collatz_Server
 		String Control_Name="ControlNode"; //Declares ControlName variable and sets equal to Control, this names the server
 		int Control_Num=4545; //Declares ControlNum variable, this sets the socket number that the server will listen on
 		int[][] Seed_Table=Seed_Array_Generator.Seed_Table_Engine();
-		Collatz_Server_State Shared_State_Object = new Collatz_Server_State(Seed_Table);
+		Collatz_Server_State State_Share = new Collatz_Server_State(Seed_Table);
 		try
 		{
 			Control_Socket = new ServerSocket(Control_Num);
@@ -22,35 +22,33 @@ public class Collatz_Server
 		System.out.println(Control_Name+" started");
 		while(listening)
 		{
-			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_01", Shared_State_Object).start();
+			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_01", State_Share).start();
 			System.out.println("New control thread started");
-			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_02", Shared_State_Object).start();
+			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_02", State_Share).start();
 			System.out.println("New control thread started");
-			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_03", Shared_State_Object).start();
+			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_03", State_Share).start();
 			System.out.println("New control thread started");
-			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_04", Shared_State_Object).start();
+			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_04", State_Share).start();
 			System.out.println("New control thread started");
-			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_05", Shared_State_Object).start();
+			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_05", State_Share).start();
 			System.out.println("New control thread started");
-			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_06", Shared_State_Object).start();
+			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_06", State_Share).start();
 			System.out.println("New control thread started");
-			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_07", Shared_State_Object).start();
+			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_07", State_Share).start();
 			System.out.println("New control thread started");
-			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_08", Shared_State_Object).start();
+			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_08", State_Share).start();
 			System.out.println("New control thread started");
-			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_09", Shared_State_Object).start();
+			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_09", State_Share).start();
 			System.out.println("New control thread started");
-			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_10", Shared_State_Object).start();
+			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_10", State_Share).start();
 			System.out.println("New control thread started");
-			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_11", Shared_State_Object).start();
+			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_11", State_Share).start();
 			System.out.println("New control thread started");
-			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_12", Shared_State_Object).start();
+			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_12", State_Share).start();
 			System.out.println("New control thread started");
-			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_13", Shared_State_Object).start();
+			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_13", State_Share).start();
 			System.out.println("New control thread started");
-			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_14", Shared_State_Object).start();
-			System.out.println("New control thread started");
-			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_15", Shared_State_Object).start();
+			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_14", State_Share).start();
 			System.out.println("New control thread started");
 		}
 		Control_Socket.close();

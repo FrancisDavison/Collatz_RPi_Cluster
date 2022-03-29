@@ -1,6 +1,6 @@
 public class Collatz_Server_State
 {
-	private Collatz_Server_State Shared_Objecct;
+	private Collatz_Server_State State_Share;
 	private String Thread_Name;
 	private boolean Current_Access=false;
 	private int Waiting=0;
@@ -14,18 +14,18 @@ public class Collatz_Server_State
 	//Attempt to acquire lock
 	public synchronized void AcquireLock() throws InterruptedException
 	{
-		Thread  me=Thread.currentThread(); //====Need a better name than me====
-		System.out.println(me.getName()+" is attempting to acquire a lock");
+		Thread  This_Thread = Thread.currentThread(); //====Need a better name than me====
+		System.out.println(This_Thread.getName()+" is attempting to acquire a lock");
 		Waiting+=Waiting;
 		while(Current_Access)
 		{
-			System.out.println(me.getName()+" waiting to get a lock, someone else is accessing...");
+			System.out.println(This_Thread.getName()+" waiting to get a lock, someone else is accessing...");
 			wait();
 		}
 		//nobody currently has a lock, so assign lock to current thread
 		Waiting-=Waiting;
 		Current_Access=true;
-		System.out.println(me.getName()+" got a lock!");
+		System.out.println(This_Thread.getName()+" got a lock!");
 	}
 	//Release the lock when thread has finished
 	public synchronized void ReleaseLock()
@@ -33,7 +33,7 @@ public class Collatz_Server_State
 		Current_Access=false;
 		notifyAll();
 		Thread me=Thread.currentThread();
-		System.out.println(me.getName()+" released a lock");
+		System.out.println(This_Thread.getName()+" released a lock");
 	}
 	//Issue seed to thread that currently has lock
 	public synchronized String ProcessInput(String Input_From_Compute)
