@@ -79,7 +79,7 @@ public class Collatz_Server_State
 				Seed_Status=11;
 			}
 			Current_Seed=Seed_Table[Node_Id-1][Live_Index[Node_Id-1]];
-			if(Current_Seed==-1)
+			if(Current_Seed==-1||Current_Seed==0)
 			{
 				//Compute for this node is complete, send message (code 999) to compute node to stop requesting seeds
 				Output_To_Compute=(String.valueOf(Node_Id+900))+(String.valueOf(999))+(String.valueOf(900000000));
